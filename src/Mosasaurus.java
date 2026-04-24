@@ -1,5 +1,8 @@
 public class Mosasaurus extends Creature {
 
+    public Mosasaurus(String name, float health) {
+        super(name, health);
+    }
 
     @Override
     public float attack() {

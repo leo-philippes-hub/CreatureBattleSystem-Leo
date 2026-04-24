@@ -1,8 +1,19 @@
 public class Creature {
-    public float health;
+
+    private float health;
     public String name;
     public String action;
 
+
+    public Creature(String name, float health) {
+        this.name = name;
+        this.health = health;
+
+    }
+
+    public float getHealth() {
+        return health;
+    }
 
 
 

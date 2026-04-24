@@ -1,10 +1,14 @@
 public class Dragon extends Creature {
 
-    float power;
+    public Dragon(String name, float health) {
+        super(name, health);
+    }
 
 
     @Override
     public float attack() {
+
+
 
 
         // 20% chance of missing
@@ -14,6 +18,7 @@ public class Dragon extends Creature {
         }
 
         // 20% chance of critical hit
+        float power;
         if (Rand.randomInt(0, 10) < 2) {
             power = Rand.randomFloat(20, 25);
             action = name + " got a critical hit with power " + power + "!";
@@ -44,6 +49,6 @@ public class Dragon extends Creature {
         }
 
 
-        health -= incomingPower;
+        gethealth() -= incomingPower;
     }
 }

@@ -1,6 +1,10 @@
 public class Triceratops extends Creature {
 
 
+    public Triceratops(String name, float health) {
+        super(name, health);
+    }
+
     @Override
     public float attack() {
 
