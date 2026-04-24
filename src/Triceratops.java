@@ -1,12 +1,7 @@
-public class Creature {
-    public float health;
-    public String name;
-    public String action;
+public class Triceratops extends Creature {
 
 
-
-
-    // Returns the damage done by the Creature
+    @Override
     public float attack() {
 
 
@@ -17,18 +12,19 @@ public class Creature {
         }
 
 
-        // otherwise, do damage between 10-20
-        float power = Rand.randomFloat(10, 20);
+        // otherwise, do damage between 10-15
+        float power = Rand.randomFloat(10, 15);
         action = name + " attacked with power " + power + "!";
         return power;
     }
 
 
+    @Override
     public void defend(float incomingPower) {
 
 
-        // 10 % chance of reducing damage taken
-        if (Rand.randomInt(0, 10) < 1) {
+        // 30 % chance of reducing damage taken
+        if (Rand.randomInt(0, 10) < 3) {
             incomingPower = incomingPower * 0.8f;
             action = name + " defended and reduced damage taken to " + incomingPower;
         }
@@ -39,16 +35,5 @@ public class Creature {
 
 
         health -= incomingPower;
-    }
-
-
-    public String readAction() {
-        return action;
-    }
-
-
-    @Override
-    public String toString() {
-        return getClass() + "{name: " + name + ", health: " + health + "}";
     }
 }
