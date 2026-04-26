@@ -1,8 +1,8 @@
 public class Creature {
 
     private float health;
-    public String name;
-    public String action;
+    private String name;
+    private String action;
 
 
     public Creature(String name, float health) {
@@ -10,9 +10,21 @@ public class Creature {
         this.health = health;
 
     }
-
+    
     public float getHealth() {
         return health;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public void setAction(String action) {
+        this.action = action;
+    }
+
+    public void reduceHealth(float healthReduction) {
+        health -= healthReduction;
     }
 
 
@@ -49,7 +61,7 @@ public class Creature {
         }
 
 
-        health -= incomingPower;
+        reduceHealth(incomingPower);
     }
 
 

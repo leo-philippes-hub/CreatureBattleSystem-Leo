@@ -1,6 +1,6 @@
 public class Triceratops extends Creature {
-
-
+    
+    
     public Triceratops(String name, float health) {
         super(name, health);
     }
@@ -11,14 +11,14 @@ public class Triceratops extends Creature {
 
         // 20% chance of missing
         if (Rand.randomInt(0, 10) < 2) {
-            action = name + " missed!";
+            setAction(getName() + " missed!");
             return 0;
         }
 
 
         // otherwise, do damage between 10-15
         float power = Rand.randomFloat(10, 15);
-        action = name + " attacked with power " + power + "!";
+        setAction(getName() + " attacked with power " + power + "!");
         return power;
     }
 
@@ -30,14 +30,14 @@ public class Triceratops extends Creature {
         // 30 % chance of reducing damage taken
         if (Rand.randomInt(0, 10) < 3) {
             incomingPower = incomingPower * 0.8f;
-            action = name + " defended and reduced damage taken to " + incomingPower;
+            setAction(getName() + " defended and reduced damage taken to " + incomingPower);
         }
         else
         {
-            action = name + " did not defend.";
+            setAction(getName() + " did not defend.");
         }
 
 
-        health -= incomingPower;
+        reduceHealth(incomingPower);
     }
 }

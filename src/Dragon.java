@@ -1,5 +1,6 @@
 public class Dragon extends Creature {
 
+
     public Dragon(String name, float health) {
         super(name, health);
     }
@@ -13,7 +14,7 @@ public class Dragon extends Creature {
 
         // 20% chance of missing
         if (Rand.randomInt(0, 10) < 2) {
-            action = name + " missed!";
+            setAction(getName() + " missed!");
             return 0;
         }
 
@@ -21,7 +22,7 @@ public class Dragon extends Creature {
         float power;
         if (Rand.randomInt(0, 10) < 2) {
             power = Rand.randomFloat(20, 25);
-            action = name + " got a critical hit with power " + power + "!";
+            setAction(getName() + " got a critical hit with power " + power + "!");
             return power;
 
         }
@@ -29,7 +30,7 @@ public class Dragon extends Creature {
 
         // otherwise, do damage between 15-20
         power = Rand.randomFloat(15, 20);
-        action = name + " attacked with power " + power + "!";
+        setAction(getName() + " attacked with power " + power + "!");
         return power;
     }
 
@@ -41,14 +42,14 @@ public class Dragon extends Creature {
         // 10 % chance of reducing damage taken
         if (Rand.randomInt(0, 10) < 1) {
             incomingPower = incomingPower * 0.8f;
-            action = name + " defended and reduced damage taken to " + incomingPower;
+            setAction(getName() + " defended and reduced damage taken to " + incomingPower);
         }
         else
         {
-            action = name + " did not defend.";
+            setAction(getName() + " did not defend.");
         }
 
 
-        gethealth() -= incomingPower;
+        reduceHealth(incomingPower);
     }
 }
